@@ -387,14 +387,23 @@
     font-family:'Cormorant Garamond', serif;
   }
 
-  /* ─── TWO COLUMN SECTIONS ─────────────────── */
+  /* ─── TWO COLUMN SECTIONS (Horoscope only) ── */
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 20px;
   }
   /* Narrower label in two-col context */
-  .two-col .lbl { width: 105px; font-size: 10.5px; }
+  .two-col .lbl { width: 115px; font-size: 10.5px; }
+
+  /* Ed + Profession side by side with proper column widths */
+  .ed-prof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 28px;
+    align-items: start;
+  }
+  .ed-prof-grid .lbl { width: 115px; font-size: 10.5px; letter-spacing: .5px; }
 
   /* ─── CONTACT BAND ────────────────────────── */
   .contact-band {
@@ -677,10 +686,6 @@
           <span class="badge-icon">◈</span>
           <span><span class="badge-lbl">Caste</span><span class="badge-val">Barot</span></span>
         </div>
-        <div class="badge">
-          <span class="badge-icon">₹</span>
-          <span><span class="badge-lbl">Income</span><span class="badge-val">5 LPA</span></span>
-        </div>
       </div>
 
       <!-- ── Personal Details ─────────────────── -->
@@ -723,7 +728,7 @@
 
       <!-- ── Education & Career side by side ─── -->
       <div class="section">
-        <div class="two-col">
+        <div class="ed-prof-grid">
           <div>
             <div class="section-header">
               <div class="section-title-wrap"><span class="section-title">Education</span></div>
@@ -751,20 +756,16 @@
             </div>
             <div class="info-grid">
               <div class="info-row">
-                <div class="lbl"><span class="dot"></span>Designation</div>
-                <div class="val">Associate Engineer</div>
+                <div class="lbl"><span class="dot"></span>Occupation</div>
+                <div class="val">Business</div>
               </div>
               <div class="info-row">
-                <div class="lbl"><span class="dot"></span>Company</div>
-                <div class="val" style="font-size:13.5px">eInfochips (An Arrow Company)</div>
+                <div class="lbl"><span class="dot"></span>Business</div>
+                <div class="val">Anmol Enterprise</div>
               </div>
               <div class="info-row">
-                <div class="lbl"><span class="dot"></span>Work City</div>
-                <div class="val">Ahmedabad</div>
-              </div>
-              <div class="info-row">
-                <div class="lbl"><span class="dot"></span>Annual CTC</div>
-                <div class="val">₹ 5 LPA</div>
+                <div class="lbl"><span class="dot"></span>Location</div>
+                <div class="val">Vadodara, Gujarat</div>
               </div>
             </div>
           </div>
@@ -812,7 +813,7 @@
             <div class="info-grid">
               <div class="info-row">
                 <div class="lbl"><span class="dot"></span>Birth Time</div>
-                <div class="val placeholder">[Add Birth Time]</div>
+                <div class="val">5:03 PM</div>
               </div>
               <div class="info-row">
                 <div class="lbl"><span class="dot"></span>Birth Place</div>
@@ -824,11 +825,11 @@
             <div class="info-grid">
               <div class="info-row">
                 <div class="lbl"><span class="dot"></span>Rashi</div>
-                <div class="val placeholder">[Add Rashi]</div>
+                <div class="val">Kark (Cancer)</div>
               </div>
               <div class="info-row">
                 <div class="lbl"><span class="dot"></span>Nakshatra</div>
-                <div class="val placeholder">[Add Nakshatra]</div>
+                <div class="val">Pushya</div>
               </div>
             </div>
           </div>
@@ -850,15 +851,15 @@
             <div class="lbl"><span class="dot"></span>Hobbies</div>
             <div class="val">
               <div class="tag-list">
-                <span class="tag placeholder">[Add Hobby]</span>
-                <span class="tag placeholder">[Add Hobby]</span>
-                <span class="tag placeholder">[Add Hobby]</span>
+                <span class="tag">Sports</span>
+                <span class="tag">Travelling</span>
+                <span class="tag">Fitness &amp; Gym</span>
               </div>
             </div>
           </div>
           <div class="info-row">
             <div class="lbl"><span class="dot"></span>About Me</div>
-            <div class="val placeholder">[Add a brief description about yourself — your values, personality, and aspirations]</div>
+            <div class="val">A calm and family-oriented individual with a passion for sports and fitness. Believes in building a strong, loving home while balancing personal growth and professional ambitions.</div>
           </div>
         </div>
       </div>
@@ -871,20 +872,8 @@
         </div>
         <div class="info-grid">
           <div class="info-row">
-            <div class="lbl"><span class="dot"></span>Expected Age</div>
-            <div class="val placeholder">[Add Age Preference]</div>
-          </div>
-          <div class="info-row">
             <div class="lbl"><span class="dot"></span>Education</div>
-            <div class="val placeholder">[Add Education Preference]</div>
-          </div>
-          <div class="info-row">
-            <div class="lbl"><span class="dot"></span>Occupation</div>
-            <div class="val placeholder">[Add Occupation Preference]</div>
-          </div>
-          <div class="info-row">
-            <div class="lbl"><span class="dot"></span>Other</div>
-            <div class="val placeholder">[Add Any Other Expectations]</div>
+            <div class="val">Graduate or Above</div>
           </div>
         </div>
       </div>
