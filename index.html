@@ -1,672 +1,947 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata - Dilon Brahmbhatt</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 30px 20px;
-            min-height: 100vh;
-        }
-        
-        .biodata-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            animation: slideUp 0.8s ease-out;
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
-            background-size: 200% 200%;
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: gradientShift 8s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header h1:first-child {
-            font-size: 20px;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            font-weight: 300;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .header h1 {
-            font-size: 48px;
-            margin-bottom: 8px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .decorative-line {
-            height: 3px;
-            background: linear-gradient(to right, transparent, #FFD700 20%, #FFD700 80%, transparent);
-            margin: 15px 0;
-            animation: pulse 3s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-        
-        .header .subtitle {
-            font-size: 16px;
-            opacity: 0.95;
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-        
-        .main-content {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 0;
-        }
-        
-        .sidebar {
-            background: linear-gradient(135deg, #FFF8DC 0%, #FFEFD5 100%);
-            padding: 30px 20px;
-            border-right: 3px solid #E8D5B7;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .photo-placeholder {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
-            border: 3px solid #8B4513;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 12px;
-            text-align: center;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
-        }
-        
-        .photo-placeholder:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.3);
-        }
-        
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .content-area {
-            padding: 35px 30px;
-            background: #fafafa;
-        }
-        
-        .section {
-            margin-bottom: 30px;
-            animation: fadeIn 0.6s ease-out backwards;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.3s; }
-        .section:nth-child(4) { animation-delay: 0.4s; }
-        .section:nth-child(5) { animation-delay: 0.5s; }
-        .section:nth-child(6) { animation-delay: 0.6s; }
-        
-        .section-title {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
-            color: white;
-            padding: 12px 18px;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 18px;
-            border-left: 5px solid #FFD700;
-            border-radius: 6px 0 0 6px;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-        }
-        
-        .section-title::before {
-            content: '';
-            position: absolute;
-            right: -50px;
-            top: 0;
-            bottom: 0;
-            width: 100px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1));
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100px); }
-            100% { transform: translateX(200px); }
-        }
-        
-        .info-row {
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            padding: 12px 0;
-            border-bottom: 1px solid #e8e8e8;
-            transition: all 0.3s ease;
-        }
-        
-        .info-row:hover {
-            background: rgba(139, 69, 19, 0.04);
-            padding-left: 8px;
-            padding-right: 8px;
-            border-radius: 4px;
-        }
-        
-        .info-row:last-child {
-            border-bottom: none;
-        }
-        
-        .info-label {
-            font-weight: 700;
-            color: #8B4513;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .info-value {
-            color: #333;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-        
-        .family-photo {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
-            border: 3px solid #8B4513;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 18px;
-            color: #999;
-            font-size: 12px;
-            text-align: center;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .family-photo:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.3);
-        }
-        
-        .family-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .footer {
-            background: linear-gradient(135deg, #FFF8DC 0%, #FFEFD5 100%);
-            padding: 25px;
-            text-align: center;
-            border-top: 3px solid #E8D5B7;
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .footer p {
-            margin: 8px 0;
-            letter-spacing: 0.5px;
-        }
-        
-        .footer p:last-child {
-            font-style: italic;
-            color: #8B4513;
-            font-weight: 600;
-            margin-top: 12px;
-            font-size: 16px;
-        }
-        
-        @media print {
-            body {
-                padding: 0;
-                background: white;
-            }
-            .biodata-container {
-                box-shadow: none;
-                max-width: 100%;
-                border-radius: 0;
-            }
-        }
-        
-        @media screen and (max-width: 768px) {
-            body {
-                padding: 15px 10px;
-            }
-            
-            .biodata-container {
-                border-radius: 15px;
-            }
-            
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                border-right: none;
-                border-bottom: 3px solid #E8D5B7;
-                padding: 20px;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-            }
-            
-            .photo-placeholder {
-                aspect-ratio: 4 / 5;
-            }
-            
-            .content-area {
-                padding: 25px 20px;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 32px;
-            }
-            
-            .header h1:first-child {
-                font-size: 16px;
-                margin-bottom: 10px;
-            }
-            
-            .header .subtitle {
-                font-size: 14px;
-            }
-            
-            .section-title {
-                font-size: 15px;
-                padding: 10px 15px;
-            }
-            
-            .info-row {
-                grid-template-columns: 130px 1fr;
-                padding: 10px 0;
-            }
-            
-            .info-label {
-                font-size: 12px;
-            }
-            
-            .info-value {
-                font-size: 14px;
-            }
-            
-            .family-photo {
-                aspect-ratio: 4 / 3;
-            }
-            
-            .section {
-                margin-bottom: 25px;
-            }
-        }
-        
-        @media screen and (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            
-            .biodata-container {
-                border-radius: 12px;
-            }
-            
-            .sidebar {
-                grid-template-columns: 1fr;
-                padding: 15px;
-                gap: 12px;
-            }
-            
-            .photo-placeholder {
-                aspect-ratio: 4 / 5;
-            }
-            
-            .header {
-                padding: 25px 15px;
-            }
-            
-            .header h1 {
-                font-size: 28px;
-            }
-            
-            .header h1:first-child {
-                font-size: 14px;
-                margin-bottom: 8px;
-            }
-            
-            .header .subtitle {
-                font-size: 13px;
-            }
-            
-            .content-area {
-                padding: 20px 15px;
-            }
-            
-            .section-title {
-                font-size: 14px;
-                padding: 8px 12px;
-                border-left: 3px solid #FFD700;
-            }
-            
-            .info-row {
-                grid-template-columns: 1fr;
-                gap: 4px;
-                padding: 8px 0;
-            }
-            
-            .info-label {
-                font-size: 11px;
-            }
-            
-            .info-value {
-                font-size: 13px;
-            }
-            
-            .family-photo {
-                aspect-ratio: 4 / 3;
-            }
-            
-            .section {
-                margin-bottom: 20px;
-            }
-            
-            .footer {
-                padding: 20px 15px;
-                font-size: 13px;
-            }
-            
-            .footer p:last-child {
-                font-size: 15px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biodata – Dilon Brahmbhatt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --crimson:   #8B1A1A;
+    --maroon:    #6B0F0F;
+    --saffron:   #D4600A;
+    --gold:      #C9922A;
+    --gold-lt:   #E8C060;
+    --gold-pale: #F5E8C0;
+    --cream:     #FDF8EE;
+    --cream-dk:  #F5EDDB;
+    --ivory:     #FFFDF7;
+    --brown:     #4A2020;
+    --text:      #2C1A0E;
+    --text-md:   #4A2C18;
+    --text-lt:   #7A5C3A;
+  }
+
+  @page { size: A4; margin: 10mm; }
+
+  body {
+    background: #E8DCC8;
+    font-family: 'Libre Baskerville', 'Georgia', serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 30px 16px;
+  }
+
+  /* ─── OUTER FRAME ─────────────────────────── */
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--cream);
+    position: relative;
+    box-shadow: 0 30px 80px rgba(60,20,10,.35), 0 0 0 1px rgba(180,120,40,.25);
+  }
+
+  /* Ornamental outer border */
+  .page::before {
+    content:'';
+    position:absolute; inset:6px;
+    border: 2px solid var(--gold);
+    pointer-events:none; z-index:10;
+  }
+  .page::after {
+    content:'';
+    position:absolute; inset:10px;
+    border: 1px solid rgba(201,146,42,.35);
+    pointer-events:none; z-index:10;
+  }
+
+  /* ─── CORNER ORNAMENTS ────────────────────── */
+  .corners {
+    position:absolute; inset:0; pointer-events:none; z-index:11;
+  }
+  .corners svg { position:absolute; }
+  .corners .tl { top:4px; left:4px; }
+  .corners .tr { top:4px; right:4px; transform:scaleX(-1); }
+  .corners .bl { bottom:4px; left:4px; transform:scaleY(-1); }
+  .corners .br { bottom:4px; right:4px; transform:scale(-1); }
+
+  /* ─── HEADER ──────────────────────────────── */
+  .header {
+    background: linear-gradient(170deg, var(--maroon) 0%, var(--crimson) 45%, #9B2424 75%, var(--maroon) 100%);
+    padding: 36px 50px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content:'';
+    position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L35 20 L50 20 L38 29 L43 44 L30 35 L17 44 L22 29 L10 20 L25 20 Z' fill='none' stroke='rgba(255,215,100,0.06)' stroke-width='0.5'/%3E%3C/svg%3E") repeat;
+    opacity:1;
+  }
+
+  /* Decorative arch top */
+  .header-arch {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 220px; height: 60px;
+    background: linear-gradient(180deg, rgba(255,215,100,.18) 0%, transparent 100%);
+    border-radius: 0 0 110px 110px;
+    border: 1px solid rgba(255,215,100,.3);
+    border-top: none;
+  }
+
+  .ganesh-line {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    color: var(--gold-lt);
+    font-size: 17px;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    position: relative;
+    text-shadow: 0 2px 8px rgba(0,0,0,.4);
+  }
+
+  .header-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px auto 12px;
+    max-width: 360px;
+  }
+  .header-divider span { flex:1; height:1px; background: linear-gradient(90deg, transparent, var(--gold-lt) 30%, var(--gold-lt) 70%, transparent); }
+  .header-divider svg { flex-shrink:0; }
+
+  .header-name {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 3px;
+    text-shadow: 0 3px 12px rgba(0,0,0,.5), 0 1px 0 rgba(255,200,80,.3);
+    line-height: 1.1;
+    position: relative;
+  }
+
+  .header-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold-lt);
+    letter-spacing: 2.5px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .header-bottom-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px auto 0;
+    max-width: 420px;
+  }
+  .header-bottom-line span { flex:1; height:2px; background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold) 60%, transparent); }
+
+  /* ─── BODY LAYOUT ─────────────────────────── */
+  .body-wrap {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    min-height: 600px;
+  }
+
+  /* ─── SIDEBAR ─────────────────────────────── */
+  .sidebar {
+    background: linear-gradient(180deg, var(--cream-dk) 0%, #EDE4CF 100%);
+    border-right: 2px solid var(--gold);
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+  }
+
+  /* Vertical floral strip */
+  .sidebar::before {
+    content:'';
+    position:absolute; right:8px; top:20px; bottom:20px; width:4px;
+    background: repeating-linear-gradient(180deg,
+      var(--gold-lt) 0px, var(--gold-lt) 4px,
+      transparent 4px, transparent 12px,
+      rgba(201,146,42,.4) 12px, rgba(201,146,42,.4) 14px,
+      transparent 14px, transparent 24px
+    );
+    opacity:.5;
+  }
+
+  .photo-frame {
+    position: relative;
+    padding: 5px;
+    background: var(--ivory);
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(100,40,10,.18), inset 0 0 0 1px rgba(201,146,42,.25);
+  }
+  .photo-frame::before {
+    content:'';
+    position:absolute; inset:-6px;
+    border:1px solid rgba(201,146,42,.3);
+    pointer-events:none;
+  }
+
+  /* Corner florals on photo */
+  .photo-frame::after {
+    content:'❧';
+    position:absolute; bottom:-10px; left:50%; transform:translateX(-50%);
+    color: var(--gold);
+    font-size:18px; line-height:1;
+    text-shadow: 0 0 6px rgba(201,146,42,.5);
+  }
+
+  .photo-frame img, .photo-frame .photo-placeholder-inner {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+  .photo-placeholder-inner {
+    background: linear-gradient(135deg, #E8D8B8, #D4C4A0);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--text-lt); font-size:12px; text-align:center; padding:10px;
+    aspect-ratio:3/4;
+  }
+
+  .sidebar-ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 22px;
+    line-height: 1;
+    opacity: .7;
+    margin: 2px 0;
+  }
+
+  /* ─── MAIN CONTENT ────────────────────────── */
+  .main {
+    padding: 28px 32px 28px 28px;
+    background: var(--ivory);
+    position: relative;
+  }
+
+  /* Background watermark pattern */
+  .main::before {
+    content:'ॐ';
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    font-family:'Tiro Devanagari Sanskrit', serif;
+    font-size:300px;
+    color: rgba(180,120,40,.04);
+    pointer-events:none; z-index:0; line-height:1;
+    user-select:none;
+  }
+
+  .section { margin-bottom:24px; position:relative; z-index:1; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .section-title-wrap {
+    background: linear-gradient(90deg, var(--crimson) 0%, var(--maroon) 100%);
+    padding: 8px 20px 8px 16px;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gold-lt);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex:1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(201,146,42,.15) 100%);
+    margin-left: 8px;
+  }
+
+  /* Gold diamond accent */
+  .section-header::before {
+    content:'◆';
+    position:absolute; left:0; top:50%; transform:translateY(-50%) translateX(-8px);
+    color:var(--gold); font-size:8px; opacity:.6;
+  }
+
+  /* ─── INFO ROWS ───────────────────────────── */
+  .info-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid rgba(201,146,42,.18);
+    transition: background .2s;
+    min-height: 36px;
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-row:hover { background: rgba(201,146,42,.07); }
+
+  .lbl {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--crimson);
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    padding: 8px 10px 8px 6px;
+    border-right: 2px solid var(--gold-lt);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    flex-shrink: 0;
+    width: 145px;
+    line-height: 1.35;
+  }
+
+  .lbl .dot {
+    width: 5px; height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15.5px;
+    color: var(--text);
+    font-weight: 500;
+    padding: 8px 8px 8px 14px;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 10px;
+  }
+
+  /* Center-align single-line values vertically */
+  .val:not(:has(.tag-list)) {
+    align-items: center;
+    padding-top: 8px;
+  }
+
+  .val.placeholder {
+    color: var(--text-lt);
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  /* ─── FAMILY PHOTO ────────────────────────── */
+  .family-photo-wrap {
+    margin-top: 18px;
+    padding: 6px;
+    background: var(--cream-dk);
+    border: 1px solid var(--gold);
+    position: relative;
+    box-shadow: 0 4px 20px rgba(100,40,10,.12);
+  }
+  .family-photo-wrap::before {
+    content: '— Family Photo —';
+    position: absolute;
+    top: -10px; left:50%; transform:translateX(-50%);
+    background: var(--ivory);
+    padding: 0 10px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .family-photo-wrap img,
+  .family-photo-wrap .family-placeholder {
+    display: block; width:100%;
+    aspect-ratio: 16/7;
+    object-fit: cover;
+  }
+  .family-placeholder {
+    background: linear-gradient(135deg, #E8D8B8, #D4C4A0);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--text-lt); font-size:12px; font-style:italic;
+    aspect-ratio:16/7;
+    font-family:'Cormorant Garamond', serif;
+  }
+
+  /* ─── TWO COLUMN SECTIONS ─────────────────── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+  }
+  /* Narrower label in two-col context */
+  .two-col .lbl { width: 105px; font-size: 10.5px; }
+
+  /* ─── CONTACT BAND ────────────────────────── */
+  .contact-band {
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--crimson) 50%, var(--maroon) 100%);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index:1;
+  }
+
+  .contact-band::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold-lt) 50%, var(--gold) 80%, transparent);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-icon {
+    width:32px; height:32px;
+    border-radius:50%;
+    border:1px solid var(--gold-lt);
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(255,255,255,.08);
+    flex-shrink:0;
+  }
+  .contact-icon svg { opacity:.9; }
+  .contact-detail { }
+  .contact-label {
+    font-size:9px; letter-spacing:1.5px; text-transform:uppercase;
+    color: rgba(255,215,100,.6);
+    font-family:'Libre Baskerville', serif;
+    font-weight:700;
+  }
+  .contact-value {
+    font-family:'Cormorant Garamond', serif;
+    font-size:15px; font-weight:600;
+    color:#fff;
+  }
+
+  .contact-sep {
+    width:1px; height:40px;
+    background: rgba(255,215,100,.25);
+    flex-shrink:0;
+  }
+
+  /* ─── FOOTER ──────────────────────────────── */
+  .footer {
+    background: var(--cream-dk);
+    padding: 16px 32px;
+    text-align: center;
+    border-top: 1px solid rgba(201,146,42,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position:relative; z-index:1;
+  }
+  .footer-main {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 20px;
+    color: var(--crimson);
+    text-shadow: 0 1px 3px rgba(0,0,0,.1);
+  }
+  .footer-sep {
+    color: var(--gold);
+    font-size: 16px;
+  }
+  .footer-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-lt);
+    letter-spacing: .5px;
+  }
+
+  /* ─── KEYLINE BETWEEN SECTIONS ───────────── */
+  .keyline {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,146,42,.4) 20%, rgba(201,146,42,.4) 80%, transparent);
+    margin: 6px 0 22px;
+    position:relative; z-index:1;
+  }
+
+  /* ─── HIGHLIGHT BADGE (for key stats) ────── */
+  .badge-row {
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; position:relative; z-index:1;
+  }
+  .badge {
+    padding:6px 14px;
+    border:1px solid var(--gold);
+    background: linear-gradient(135deg, var(--cream-dk), var(--gold-pale));
+    border-radius:2px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:14px; font-weight:600;
+    color: var(--brown);
+    display:flex; align-items:center; gap:7px;
+    box-shadow: 0 2px 8px rgba(100,40,10,.1);
+  }
+  .badge-icon { color:var(--saffron); font-size:15px; }
+  .badge-lbl { font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--text-lt); display:block; font-weight:400; }
+  .badge-val { font-size:15px; font-weight:700; color:var(--brown); }
+
+  /* ─── MANDALA DIVIDER ─────────────────────── */
+  .mandala-divider {
+    display:flex; align-items:center; gap:12px; margin:14px 0 20px; position:relative; z-index:1;
+  }
+  .mandala-divider span { flex:1; height:1px; background:linear-gradient(90deg, transparent, rgba(201,146,42,.4) 70%); }
+  .mandala-divider span:last-child { background:linear-gradient(270deg, transparent, rgba(201,146,42,.4) 70%); }
+
+  /* ─── HOBBIES TAGS ────────────────────────── */
+  .tag-list { display:flex; flex-wrap:wrap; gap:7px; padding:6px 0; }
+  .tag {
+    padding:4px 12px;
+    border:1px solid rgba(201,146,42,.45);
+    border-radius:1px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:14px; color:var(--text-md);
+    background: var(--cream-dk);
+    font-style:italic;
+  }
+  .tag.placeholder { color:var(--text-lt); border-style:dashed; }
+
+  /* ─── PRINT ───────────────────────────────── */
+  @media print {
+    body { padding:0; background:white; }
+    .page { box-shadow:none; max-width:100%; }
+    .page::before, .page::after { display:none; }
+  }
+
+  /* ─── MOBILE ──────────────────────────────── */
+  @media (max-width: 640px) {
+    body { padding:12px 8px; }
+    .body-wrap { grid-template-columns:1fr; }
+    .sidebar {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      border-right:none; border-bottom:2px solid var(--gold);
+      padding:16px;
+    }
+    .sidebar-ornament { display:none; }
+    .main { padding:20px 16px; }
+    .header-name { font-size:36px; }
+    .info-grid { grid-template-columns:110px 1fr; }
+    .two-col { grid-template-columns:1fr; }
+    .contact-band { justify-content:center; gap:12px; }
+    .contact-sep { display:none; }
+  }
+</style>
 </head>
 <body>
-    <div class="biodata-container">
-        <div class="header">
-            <div class="header-content">
-                <h1>|| श्री गणेशाय नमः ||</h1>
-                <div class="decorative-line"></div>
-                <h1>DILON BRAHMBHATT</h1>
-                <p class="subtitle">Biodata for Matrimonial Alliance</p>
-            </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="sidebar">
-                <div class="photo-placeholder">
-                     <img src="pic_1.jpg" alt="Profile Photo">
-                </div>
-                <div class="photo-placeholder">
-                    <img src="pic_2.jpg" alt="Photo">
-                </div>
-                <div class="photo-placeholder">
-                    <img src="pic_3.jpg" alt="Photo">
-                </div>
-            </div>
-            
-            <div class="content-area">
-                <div class="section">
-                    <div class="section-title">Personal Details</div>
-                    <div class="info-row">
-                        <div class="info-label">Full Name:</div>
-                        <div class="info-value">Dilon Brahmbhatt</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Date of Birth:</div>
-                        <div class="info-value">15th November 2003</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Age:</div>
-                        <div class="info-value">22 Years</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Height:</div>
-                        <div class="info-value">172 cm (5'8")</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Blood Group:</div>
-                        <div class="info-value">A+</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Mother Tongue:</div>
-                        <div class="info-value">Gujarati</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Religion:</div>
-                        <div class="info-value">Hindu</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Caste:</div>
-                        <div class="info-value">Barot</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Hometown:</div>
-                        <div class="info-value">Vadodara, Gujarat</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">Educational Qualifications</div>
-                    <div class="info-row">
-                        <div class="info-label">Degree:</div>
-                        <div class="info-value">B.Tech in ICT (Information & Communication Technology)</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Institution:</div>
-                        <div class="info-value">Pandit Deendayal Energy University</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Year of Passing:</div>
-                        <div class="info-value">2026</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">Professional Details</div>
-                    <div class="info-row">
-                        <div class="info-label">Occupation:</div>
-                        <div class="info-value">Associate Engineer</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Company:</div>
-                        <div class="info-value">eInfochips (An Arrow Company)</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Location:</div>
-                        <div class="info-value">Ahmedabad</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Annual Income:</div>
-                        <div class="info-value">5 LPA</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">Family Details</div>
-                    <div class="info-row">
-                        <div class="info-label">Father's Name:</div>
-                        <div class="info-value">Hemen Brahmbhatt</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Father's Occupation:</div>
-                        <div class="info-value">Business</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Mother's Name:</div>
-                        <div class="info-value">Dimple Brahmbhatt</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Mother's Occupation:</div>
-                        <div class="info-value">Housewife</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Siblings:</div>
-                        <div class="info-value">One Brother (Married)</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Family Type:</div>
-                        <div class="info-value">Nuclear</div>
-                    </div>
-                    <div class="family-photo">
-                        <img src="pic_family.jpg" alt="Family Photo">
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">Horoscope Details</div>
-                    <div class="info-row">
-                        <div class="info-label">Birth Time:</div>
-                        <div class="info-value">[Add Time]</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Birth Place:</div>
-                        <div class="info-value">Vadodara</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Rashi (Moon Sign):</div>
-                        <div class="info-value">[Add Details]</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Nakshatra:</div>
-                        <div class="info-value">[Add Details]</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">Additional Information</div>
-                    <div class="info-row">
-                        <div class="info-label">Hobbies:</div>
-                        <div class="info-value">[Add your hobbies and interests]</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Languages Known:</div>
-                        <div class="info-value">Gujarati, Hindi, English</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">About Me:</div>
-                        <div class="info-value">[Add brief description about yourself]</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">Partner Preferences</div>
-                    <div class="info-row">
-                        <div class="info-label">Expected Age:</div>
-                        <div class="info-value">[Add preference]</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Education:</div>
-                        <div class="info-value">[Add preference]</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Occupation:</div>
-                        <div class="info-value">[Add preference]</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Other Expectations:</div>
-                        <div class="info-value">[Add your expectations]</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">Contact Information</div>
-                    <div class="info-row">
-                        <div class="info-label">Mobile:</div>
-                        <div class="info-value">8320137058</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Email:</div>
-                        <div class="info-value">2003.dilon@gmail.com</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">Address:</div>
-                        <div class="info-value">1102, Vicenza Highdeck, Kalali, Vadodara</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <p>|| જય શ્રી કૃષ્ણ ||</p>
-        </div>
+
+<div class="page">
+
+  <!-- Corner ornaments SVG -->
+  <div class="corners">
+    <svg class="tl" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 6 L48 6" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L6 48" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L20 20" stroke="#C9922A" stroke-width="0.8" opacity=".5"/>
+      <circle cx="6" cy="6" r="4" fill="none" stroke="#C9922A" stroke-width="1.2"/>
+      <circle cx="6" cy="6" r="1.5" fill="#C9922A"/>
+      <path d="M14 6 Q6 14 6 14" stroke="#C9922A" stroke-width="0.8" opacity=".6"/>
+      <path d="M22 6 Q6 22 6 22" stroke="#C9922A" stroke-width="0.5" opacity=".4"/>
+      <path d="M30 6 Q6 30 6 30" stroke="#C9922A" stroke-width="0.4" opacity=".25"/>
+      <circle cx="20" cy="6" r="1.5" fill="#C9922A" opacity=".5"/>
+      <circle cx="6" cy="20" r="1.5" fill="#C9922A" opacity=".5"/>
+      <path d="M10 6 L10 10 L6 10" stroke="#E8C060" stroke-width="0.8" opacity=".5"/>
+    </svg>
+    <svg class="tr" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 6 L48 6" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L6 48" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L20 20" stroke="#C9922A" stroke-width="0.8" opacity=".5"/>
+      <circle cx="6" cy="6" r="4" fill="none" stroke="#C9922A" stroke-width="1.2"/>
+      <circle cx="6" cy="6" r="1.5" fill="#C9922A"/>
+      <path d="M14 6 Q6 14 6 14" stroke="#C9922A" stroke-width="0.8" opacity=".6"/>
+      <path d="M22 6 Q6 22 6 22" stroke="#C9922A" stroke-width="0.5" opacity=".4"/>
+      <circle cx="20" cy="6" r="1.5" fill="#C9922A" opacity=".5"/>
+      <circle cx="6" cy="20" r="1.5" fill="#C9922A" opacity=".5"/>
+      <path d="M10 6 L10 10 L6 10" stroke="#E8C060" stroke-width="0.8" opacity=".5"/>
+    </svg>
+    <svg class="bl" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 6 L48 6" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L6 48" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L20 20" stroke="#C9922A" stroke-width="0.8" opacity=".5"/>
+      <circle cx="6" cy="6" r="4" fill="none" stroke="#C9922A" stroke-width="1.2"/>
+      <circle cx="6" cy="6" r="1.5" fill="#C9922A"/>
+      <path d="M14 6 Q6 14 6 14" stroke="#C9922A" stroke-width="0.8" opacity=".6"/>
+      <path d="M22 6 Q6 22 6 22" stroke="#C9922A" stroke-width="0.5" opacity=".4"/>
+      <circle cx="20" cy="6" r="1.5" fill="#C9922A" opacity=".5"/>
+      <circle cx="6" cy="20" r="1.5" fill="#C9922A" opacity=".5"/>
+      <path d="M10 6 L10 10 L6 10" stroke="#E8C060" stroke-width="0.8" opacity=".5"/>
+    </svg>
+    <svg class="br" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6 6 L48 6" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L6 48" stroke="#C9922A" stroke-width="1.5"/>
+      <path d="M6 6 L20 20" stroke="#C9922A" stroke-width="0.8" opacity=".5"/>
+      <circle cx="6" cy="6" r="4" fill="none" stroke="#C9922A" stroke-width="1.2"/>
+      <circle cx="6" cy="6" r="1.5" fill="#C9922A"/>
+      <path d="M14 6 Q6 14 6 14" stroke="#C9922A" stroke-width="0.8" opacity=".6"/>
+      <path d="M22 6 Q6 22 6 22" stroke="#C9922A" stroke-width="0.5" opacity=".4"/>
+      <circle cx="20" cy="6" r="1.5" fill="#C9922A" opacity=".5"/>
+      <circle cx="6" cy="20" r="1.5" fill="#C9922A" opacity=".5"/>
+      <path d="M10 6 L10 10 L6 10" stroke="#E8C060" stroke-width="0.8" opacity=".5"/>
+    </svg>
+  </div>
+
+  <!-- ══ HEADER ══════════════════════════════ -->
+  <div class="header">
+    <div class="header-arch"></div>
+    <p class="ganesh-line">॥ श्री गणेशाय नमः ॥</p>
+
+    <div class="header-divider">
+      <span></span>
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="10" stroke="#E8C060" stroke-width="0.8" opacity=".6"/>
+        <path d="M13 3 L14.2 9.5 L20 7 L16.5 12.5 L23 13 L16.5 13.5 L20 19 L14.2 16.5 L13 23 L11.8 16.5 L6 19 L9.5 13.5 L3 13 L9.5 12.5 L6 7 L11.8 9.5 Z" fill="#E8C060" opacity=".7"/>
+      </svg>
+      <span></span>
     </div>
+
+    <h1 class="header-name">DILON BRAHMBHATT</h1>
+    <p class="header-subtitle">✦ Biodata for Matrimonial Alliance ✦</p>
+
+    <div class="header-bottom-line">
+      <span></span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 2 L11.5 8 L18 10 L11.5 12 L10 18 L8.5 12 L2 10 L8.5 8 Z" fill="#C9922A" opacity=".8"/>
+      </svg>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- ══ BODY ═════════════════════════════════ -->
+  <div class="body-wrap">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="photo-frame">
+        <img src="pic_1.jpg" alt="Dilon Brahmbhatt – Profile Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="photo-placeholder-inner" style="display:none;">Profile<br>Photo</div>
+      </div>
+
+      <div class="sidebar-ornament">✦ ❧ ✦</div>
+
+      <div class="photo-frame">
+        <img src="pic_2.jpg" alt="Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="photo-placeholder-inner" style="display:none;">Photo</div>
+      </div>
+
+      <div class="sidebar-ornament">✦ ❧ ✦</div>
+
+      <div class="photo-frame">
+        <img src="pic_3.jpg" alt="Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="photo-placeholder-inner" style="display:none;">Photo</div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- Quick-glance badges -->
+      <div class="badge-row">
+        <div class="badge">
+          <span class="badge-icon">☀</span>
+          <span><span class="badge-lbl">Age</span><span class="badge-val">22 Years</span></span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">↕</span>
+          <span><span class="badge-lbl">Height</span><span class="badge-val">5'8"&nbsp;/ 172 cm</span></span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">◈</span>
+          <span><span class="badge-lbl">Caste</span><span class="badge-val">Barot</span></span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">₹</span>
+          <span><span class="badge-lbl">Income</span><span class="badge-val">5 LPA</span></span>
+        </div>
+      </div>
+
+      <!-- ── Personal Details ─────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title-wrap"><span class="section-title">Personal Details</span></div>
+          <div class="section-line"></div>
+        </div>
+        <div class="info-grid">
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Full Name</div>
+            <div class="val">Dilon Brahmbhatt</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Date of Birth</div>
+            <div class="val">15th November 2003</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Blood Group</div>
+            <div class="val">A+</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Mother Tongue</div>
+            <div class="val">Gujarati</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Religion</div>
+            <div class="val">Hindu</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Caste</div>
+            <div class="val">Barot</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Hometown</div>
+            <div class="val">Vadodara, Gujarat</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Education & Career side by side ─── -->
+      <div class="section">
+        <div class="two-col">
+          <div>
+            <div class="section-header">
+              <div class="section-title-wrap"><span class="section-title">Education</span></div>
+              <div class="section-line"></div>
+            </div>
+            <div class="info-grid">
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Degree</div>
+                <div class="val">B.Tech – ICT</div>
+              </div>
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>University</div>
+                <div class="val" style="font-size:13.5px">Pandit Deendayal Energy University</div>
+              </div>
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Passing Year</div>
+                <div class="val">2026</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-header">
+              <div class="section-title-wrap"><span class="section-title">Profession</span></div>
+              <div class="section-line"></div>
+            </div>
+            <div class="info-grid">
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Designation</div>
+                <div class="val">Associate Engineer</div>
+              </div>
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Company</div>
+                <div class="val" style="font-size:13.5px">eInfochips (An Arrow Company)</div>
+              </div>
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Work City</div>
+                <div class="val">Ahmedabad</div>
+              </div>
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Annual CTC</div>
+                <div class="val">₹ 5 LPA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Family ──────────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title-wrap"><span class="section-title">Family Details</span></div>
+          <div class="section-line"></div>
+        </div>
+        <div class="info-grid">
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Father</div>
+            <div class="val">Hemen Brahmbhatt &nbsp;<span style="color:var(--text-lt);font-size:13px;font-style:italic">(Business)</span></div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Mother</div>
+            <div class="val">Dimple Brahmbhatt &nbsp;<span style="color:var(--text-lt);font-size:13px;font-style:italic">(Housewife)</span></div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Siblings</div>
+            <div class="val">One Brother (Married)</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Family Type</div>
+            <div class="val">Nuclear Family</div>
+          </div>
+        </div>
+        <div class="family-photo-wrap" style="margin-top:20px;">
+          <img src="pic_family.jpg" alt="Family Photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="family-placeholder" style="display:none;">Family Photo</div>
+        </div>
+      </div>
+
+      <!-- ── Horoscope ───────────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title-wrap"><span class="section-title">Horoscope / Kundali</span></div>
+          <div class="section-line"></div>
+        </div>
+        <div class="two-col">
+          <div>
+            <div class="info-grid">
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Birth Time</div>
+                <div class="val placeholder">[Add Birth Time]</div>
+              </div>
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Birth Place</div>
+                <div class="val">Vadodara, Gujarat</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="info-grid">
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Rashi</div>
+                <div class="val placeholder">[Add Rashi]</div>
+              </div>
+              <div class="info-row">
+                <div class="lbl"><span class="dot"></span>Nakshatra</div>
+                <div class="val placeholder">[Add Nakshatra]</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Additional Info ─────────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title-wrap"><span class="section-title">About &amp; Interests</span></div>
+          <div class="section-line"></div>
+        </div>
+        <div class="info-grid">
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Languages</div>
+            <div class="val">Gujarati, Hindi, English</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Hobbies</div>
+            <div class="val">
+              <div class="tag-list">
+                <span class="tag placeholder">[Add Hobby]</span>
+                <span class="tag placeholder">[Add Hobby]</span>
+                <span class="tag placeholder">[Add Hobby]</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>About Me</div>
+            <div class="val placeholder">[Add a brief description about yourself — your values, personality, and aspirations]</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Partner Preferences ─────────────── -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-title-wrap"><span class="section-title">Partner Preferences</span></div>
+          <div class="section-line"></div>
+        </div>
+        <div class="info-grid">
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Expected Age</div>
+            <div class="val placeholder">[Add Age Preference]</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Education</div>
+            <div class="val placeholder">[Add Education Preference]</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Occupation</div>
+            <div class="val placeholder">[Add Occupation Preference]</div>
+          </div>
+          <div class="info-row">
+            <div class="lbl"><span class="dot"></span>Other</div>
+            <div class="val placeholder">[Add Any Other Expectations]</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /body-wrap -->
+
+  <!-- ══ CONTACT BAND ══════════════════════════ -->
+  <div class="contact-band">
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="#E8C060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Mobile</div>
+        <div class="contact-value">+91 83201 37058</div>
+      </div>
+    </div>
+    <div class="contact-sep"></div>
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#E8C060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 6l-10 7L2 6" stroke="#E8C060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Email</div>
+        <div class="contact-value">2003.dilon@gmail.com</div>
+      </div>
+    </div>
+    <div class="contact-sep"></div>
+    <div class="contact-item">
+      <div class="contact-icon">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#E8C060" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="9" r="2.5" stroke="#E8C060" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-label">Address</div>
+        <div class="contact-value" style="font-size:13px">1102, Vicenza Highdeck, Kalali, Vadodara</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ════════════════════════════════ -->
+  <div class="footer">
+    <span class="footer-main">॥ જય શ્રી કૃષ્ણ ॥</span>
+    <span class="footer-sep">✦</span>
+    <span class="footer-sub">May the Almighty bless this union with love and prosperity.</span>
+    <span class="footer-sep">✦</span>
+    <span class="footer-main" style="font-size:15px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-lt);">Brahmbhatt Family · Vadodara</span>
+  </div>
+
+</div><!-- /page -->
 </body>
 </html>
